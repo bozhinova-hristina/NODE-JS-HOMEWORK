@@ -16,5 +16,14 @@
     "isCurrentlyTeaching": true,
     "timeEmployed": "3 years",
     "coursesFinished": 3
+  },
+  {
+    "id": "b5f62bb3-61ef-4c7b-a469-ecfd6ee16f64",
+    "firstName": "Petre",
+    "lastName": "Arsov",
+    "email": "arso.pet@gmail.com",
+    "isCurrentlyTeaching": false,
+    "timeEmployed": "3 years",
+    "coursesFinished": 0
   }
 ]

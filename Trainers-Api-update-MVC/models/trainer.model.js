@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 import { v4 as uuid } from "uuid";
 
 
+
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const trainersPath = path.join(__dirname, "..", "data", "trainers.json");
@@ -14,10 +16,29 @@ export class TrainerModel {
   await DataService.saveJSONFile(trainersPath, trainers);
  }
  // 1. Get all trainers
- static async getAllTrainers() {
-  const trainers = await DataService.readJSONFile(trainersPath);
+ static async getAllTrainers(filters)  {
+  let trainers = await DataService.readJSONFile(trainersPath);
+  // console.log(trainers) 
+    if(filters?.isCurrentlyTeaching){
+   trainers = trainers.filter(trainer => {
+     if(filters.isCurrentlyTeaching === 'true') return trainer.isCurrentlyTeaching;
+    if(filters.isCurrentlyTeaching === 'false') return !trainer.isCurrentlyTeaching;
+     console.log(trainers)
+   });
+
+   if(filters?.coursesFinished){
+    trainers.sort((trainer1, trainer2) => {
+   if(filters.coursesFinished === 'asc') return trainer1.coursesFinished - trainer2.coursesFinished;
+   if(filters.coursesFinished === 'decs') return trainer2.coursesFinished - trainer1.coursesFinished;
+  
+  
+    });
+
+  }
+
   return trainers;
  }
+}
  //2. Get trainer by id
 
  static async getTrainerByID(trainerId){
@@ -31,18 +52,23 @@ export class TrainerModel {
  }
 
 // 3.Add a trainer.
-static async  addTrainer (trainerData){
-
- const trainers = await this.getAllTrainers();
+static async  addTrainer(firstName, lastName, email, isCurrentlyTeaching, timeEmployed, coursesFinished){
 
 
-const emailExist =  trainers.some(trainer => trainer.email === trainerData.emaill);
+const trainers = await this.getAllTrainers();
+
+
+const emailExist =  trainers.some(trainer => trainer.email === trainerData.email);
+
+
 if(emailExist) throw new Error ('Email already exist');
+
+const trainerData = { firstName, lastName, email, isCurrentlyTeaching, timeEmployed, coursesFinished };
 
 
  const newTrainer = {
-  id: uuid(),
-  ...trainerData,
+   id: uuid(),
+ ...trainerData
  }
 
  const updatedTrainers = [...trainers, newTrainer];

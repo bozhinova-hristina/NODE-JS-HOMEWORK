@@ -73,9 +73,6 @@ static async deleteAllTrainers(req, res){
 }
 
 
-
-
-
 // 6.Delete trainer by id
 
 static async deleteTrainer(req, res){
@@ -88,10 +85,5 @@ try {
   return res.status(404).json({msg: error.message});
 }
 }
-
-
-
-
-
 
 }
