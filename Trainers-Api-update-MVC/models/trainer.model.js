@@ -2,7 +2,7 @@ import { DataService } from "../services/data.services.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { v4 as uuid } from "uuid";
-import { log } from "node:console";
+
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -72,22 +72,21 @@ const updatedTrainers = trainers.map(trainer =>
 }
 
 
-// 5.Delete all trainers
+//5.Delete all trainers
 static async deleteAllTrainers(){
  await this.saveTrainers([]);
 }
 
+
 //6. Delete trainer by id
 static async deleteTrainer(trainerId){
 
-const trainers = this.getAllTrainers();
-const updatedTrainers = trainers.filter(trainer => trainer.id !== trainerId)
-
-if(updatedTrainers.length === trainers.length) throw new Error ("Trainer not found");
-await this.saveTrainers(updatedTrainers)
-}
-
-
+ const trainers = this.getAllTrainers();
+ const updatedTrainers = trainers.filter(trainer => trainer.id !== trainerId)
+ 
+ if(updatedTrainers.length === trainers.length) throw new Error ("Trainer not found");
+ await this.saveTrainers(updatedTrainers)
+ }
 
 
 }
