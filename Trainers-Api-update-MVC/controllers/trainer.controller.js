@@ -4,7 +4,7 @@ export class TrainerController {
  // 1. Get all trainers
  static async getAllTrainers(req, res) {
   try {
-   const trainers = await TrainerModel.getAllTrainers();
+   const trainers = await TrainerModel.getAllTrainers(req.query);
  
    return res.json(trainers);
 
