@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "1483499b-6b7d-4cba-b3e5-8c32ab180cb5",
+		"name": "Trainers-Api-MVC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26276859"
+	},
+	"item": [
+		{
+			"name": "Get All Trainers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/trainers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trainers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Params",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/trainers?coursesFinished=decs&isCurrentlyTeaching=false",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trainers"
+					],
+					"query": [
+						{
+							"key": "coursesFinished",
+							"value": "decs"
+						},
+						{
+							"key": "isCurrentlyTeaching",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a trainer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Boban\",\r\n    \"lastName\": \"Trajkovski\",\r\n    \"email\": \"trajkovski.b@gmail.com\",\r\n    \"isCurrentlyTeaching\": true,\r\n    \"timeEmployed\": \"3 years\",\r\n    \"coursesFinished\": 2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/trainers",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trainers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update trainer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Panche\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/trainers/b577cd05-fbb6-4303-bcba-43da9a5795d7",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trainers",
+						"b577cd05-fbb6-4303-bcba-43da9a5795d7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/trainers/b577cd05-fbb6-4303-bcba-43da9a5795d7",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trainers",
+						"b577cd05-fbb6-4303-bcba-43da9a5795d7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteALL",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/trainers/all",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trainers",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get trainer by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/trainers/de556c43-edba-4405-a036-3315378a5cf7",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trainers",
+						"de556c43-edba-4405-a036-3315378a5cf7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query params",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/trainers?isCurrentlyTeaching=true&coursesFinished=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trainers"
+					],
+					"query": [
+						{
+							"key": "isCurrentlyTeaching",
+							"value": "true"
+						},
+						{
+							"key": "coursesFinished",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

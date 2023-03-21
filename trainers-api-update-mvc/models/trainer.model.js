@@ -22,7 +22,7 @@ export class TrainerModel {
           return trainer.isCurrentlyTeaching;
         if (filters.isCurrentlyTeaching === "false")
           return !trainer.isCurrentlyTeaching;
-        console.log(trainers);
+        // console.log(trainers);
       });
     }
     if (filters?.coursesFinished) {
@@ -48,41 +48,26 @@ export class TrainerModel {
   }
 
   // 3.Add a trainer.
-  static async addTrainer(
-    firstName,
-    lastName,
-    email,
-    isCurrentlyTeaching,
-    timeEmployed,
-    coursesFinished
-  ) {
+  static async addTrainer(trainerData) {
     const trainers = await this.getAllTrainers();
 
-    const emailExist = trainers.some(
+    const emailExists = trainers.some(
       (trainer) => trainer.email === trainerData.email
     );
 
-    if (emailExist) throw new Error("Email already exist");
+    if (emailExists) throw new Error("Email already exists!");
 
-    const trainerData = {
-      firstName,
-      lastName,
-      email,
-      isCurrentlyTeaching,
-      timeEmployed,
-      coursesFinished,
-    };
-
-    const newTrainer = {
+    const trainer = {
       id: uuid(),
       ...trainerData,
     };
 
-    const updatedTrainers = [...trainers, newTrainer];
-    await this.saveTrainers(updatedTrainers);
+    const updatedTrainers = [...trainers, trainer];
 
-    return newTrainer;
+    await this.saveTrainers(updatedTrainers);
+    return trainer;
   }
+
   // 4.Update Trainer Info.
 
   static async updateTrainer(trainerId, updateData) {
@@ -97,7 +82,7 @@ export class TrainerModel {
     };
 
     const updatedTrainers = trainers.map((trainer) =>
-      trainer.id === updatedTrainer.id ? foundTrainer : trainer
+      trainer.id === updatedTrainer.id ? updatedTrainer : trainer
     );
 
     await this.saveTrainers(updatedTrainers);
@@ -111,13 +96,15 @@ export class TrainerModel {
 
   //6. Delete trainer by id
   static async deleteTrainer(trainerId) {
-    const trainers = this.getAllTrainers();
+    const trainers = await this.getAllTrainers();
+
     const updatedTrainers = trainers.filter(
       (trainer) => trainer.id !== trainerId
     );
 
     if (updatedTrainers.length === trainers.length)
       throw new Error("Trainer not found");
+
     await this.saveTrainers(updatedTrainers);
   }
 }

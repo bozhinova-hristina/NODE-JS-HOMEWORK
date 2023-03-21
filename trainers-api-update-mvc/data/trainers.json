@@ -1,7 +1,7 @@
 [
   {
     "id": "b577cd05-fbb6-4303-bcba-43da9a5795d7",
-    "firstName": "Pane",
+    "firstName": "Panche",
     "lastName": "Manaskov",
     "email": "panemanaskov@gmail.com",
     "isCurrentlyTeaching": true,
@@ -25,5 +25,14 @@
     "isCurrentlyTeaching": false,
     "timeEmployed": "3 years",
     "coursesFinished": 0
+  },
+  {
+    "id": "0c944c03-be11-46c1-b5d7-c5a0561e7ed4",
+    "firstName": "Boban",
+    "lastName": "Trajkovski",
+    "email": "trajkovski.b@gmail.com",
+    "isCurrentlyTeaching": true,
+    "timeEmployed": "3 years",
+    "coursesFinished": 2
   }
 ]

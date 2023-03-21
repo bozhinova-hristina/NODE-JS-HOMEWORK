@@ -1,4 +1,4 @@
-import express  from "express";
+import express from "express";
 import { globalRouter } from "./const/router.const.js";
 
 const PORT = process.env.PORT || 4000;
@@ -10,5 +10,5 @@ app.use(express.json());
 app.use("/api", globalRouter);
 
 app.listen(PORT, HOST, () => {
- console.log(`Server is up at port ${PORT}`);
-})
+  console.log(`Server is up at port ${PORT}`);
+});
