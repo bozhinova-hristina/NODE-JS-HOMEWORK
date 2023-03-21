@@ -1,7 +1,6 @@
 {
   "name": "trainers-api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -15,5 +14,6 @@
     "express": "^4.18.2",
     "nodemon": "^2.0.21",
     "uuid": "^9.0.0"
-  }
+  },
+  "description": ""
 }

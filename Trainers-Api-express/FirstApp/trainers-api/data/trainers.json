@@ -1,4 +1,4 @@
-[
+[][
   {
     "id": "b577cd05-fbb6-4303-bcba-43da9a5795d7",
     "firstName": "Pane",
@@ -25,5 +25,14 @@
     "isCurrentlyTeaching": true,
     "timeEmployed": "3 years",
     "coursesFinished": 2
+  },
+  {
+    "id": "5c830003-8845-4364-ae40-8c0112c79580",
+    "firstName": "Hristina",
+    "lastName": "Bozhinova",
+    "email": "hbozinova@yahoo.com",
+    "isCurrentlyTeaching": true,
+    "timeEmployed": "2 months",
+    "coursesFinished": 10
   }
 ]
