@@ -3,6 +3,7 @@ import { pathBuilder } from "../utils/utils.js";
 import { v4 as uuid } from "uuid";
 import Joi from "joi";
 import bcrypt from "bcryptjs";
+// bcryptjs library for password hashing
 
 const userSchema = Joi.object({
   firstName: Joi.string().min(4).required(),
