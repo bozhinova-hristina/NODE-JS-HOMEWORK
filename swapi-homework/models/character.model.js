@@ -14,7 +14,6 @@ export class CharacterModel {
 
     return characters;
   }
-
   //2. Get character by id
 
   static async getCharacterById(characterId) {
