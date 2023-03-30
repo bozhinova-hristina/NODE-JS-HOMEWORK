@@ -1,7 +1,6 @@
 import { DataService } from "../services/data.service.js";
 import { pathBuilder } from "../utils/utils.js";
 import { v4 as uuid } from "uuid";
-// import Joi from "joi";
 import bcrypt from "bcryptjs";
 import { signupSchema } from "../middlewares/joi-validation-middleware.js";
 
@@ -72,5 +71,17 @@ export class AuthModel {
     const { password: userPassword, ...userWithoutPassword } = foundUser;
 
     return userWithoutPassword;
+  }
+
+  static async saveRefreshToken(userId, refreshToken) {
+    const users = await this.getAllUsers();
+    const updatedUsers = users.map((user) => {
+      if (user.id === userId) {
+        user.refreshToken = refreshToken;
+        return user;
+      }
+      return user;
+    });
+    await this.saveUsers(updatedUsers);
   }
 }

@@ -5,5 +5,13 @@
     "lastName": "Bozhinova",
     "email": "hristinabozinova@yahoo.com",
     "password": "$2a$08$8CQOKgzLpk7CpRI7NlVCw.J2nPmc3c6MAJ7GfbctnSavyUIkKISHu"
+  },
+  {
+    "id": "8cd51e42-2a06-45b7-9c9d-587f69ac941e",
+    "firstName": "Hristina",
+    "lastName": "Hristova",
+    "email": "hristinah@yahoo.com",
+    "password": "$2a$08$ZrsHG5jagcSJzKr4K5.qteC1DuBipyzfsccCtpyA67ASE66PlvbmK",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4Y2Q1MWU0Mi0yYTA2LTQ1YjctOWM5ZC01ODdmNjlhYzk0MWUiLCJpYXQiOjE2ODAxMTMxNDksImV4cCI6MTY4MDcxNzk0OX0.N3UkYxha1yXLtyxS-RxREFHPuPMYxE_7R_oE-sRNuKY"
   }
 ]

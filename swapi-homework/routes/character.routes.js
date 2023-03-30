@@ -1,5 +1,9 @@
 import { Router } from "express";
 import { CharacterController } from "../controllers/character.controller.js";
+import {
+  characterValidatorOptional,
+  characterValidator,
+} from "../middlewares/joi-validation-middleware.js";
 
 export const characterRouter = Router();
 
@@ -10,10 +14,18 @@ characterRouter.get("/", CharacterController.getAllCharacters);
 characterRouter.get("/:id", CharacterController.getCharacterById);
 
 // 3.Create character
-characterRouter.post("/", CharacterController.createCharacter);
+characterRouter.post(
+  "/",
+  characterValidator,
+  CharacterController.createCharacter
+);
 
 // 4.Update character
-characterRouter.patch("/:id", CharacterController.updateCharacter);
+characterRouter.patch(
+  "/:id",
+  characterValidatorOptional,
+  CharacterController.updateCharacter
+);
 
 //5.Delete all characters
 characterRouter.delete("/all", CharacterController.deleteAllCharacters);

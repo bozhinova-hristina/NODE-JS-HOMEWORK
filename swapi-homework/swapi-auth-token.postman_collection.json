@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "d39e1ad9-b2c4-4908-bc58-e185410fc145",
+		"name": "swapi-auth-token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26276859"
+	},
+	"item": [
+		{
+			"name": "Register/HashingPass",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Hristina\",\r\n    \"lastName\": \"Hristova\",\r\n    \"email\": \"hristinah@yahoo.com\",\r\n    \"password\": \"secret123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4Y2Q1MWU0Mi0yYTA2LTQ1YjctOWM5ZC01ODdmNjlhYzk0MWUiLCJpYXQiOjE2ODAwMzE5NDYsImV4cCI6MTY4MDAzMjI0Nn0.s5TQvrTMGtwaPUzWaFmHocVlzMF-huRY1WFld2Q8s90",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"email\": \"hristinah@yahoo.com\",\r\n    \"password\": \"secret123\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RefreshAccessToken",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4Y2Q1MWU0Mi0yYTA2LTQ1YjctOWM5ZC01ODdmNjlhYzk0MWUiLCJpYXQiOjE2ODAwMzE5NDYsImV4cCI6MTY4MDAzMjI0Nn0.s5TQvrTMGtwaPUzWaFmHocVlzMF-huRY1WFld2Q8s90",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "refresh-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4Y2Q1MWU0Mi0yYTA2LTQ1YjctOWM5ZC01ODdmNjlhYzk0MWUiLCJpYXQiOjE2ODAxMTMxNDksImV4cCI6MTY4MDcxNzk0OX0.N3UkYxha1yXLtyxS-RxREFHPuPMYxE_7R_oE-sRNuKY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"email\": \"hristinah@yahoo.com\",\r\n    \"password\": \"secret123\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/refresh-token",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
